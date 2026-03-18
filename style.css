@@ -427,7 +427,7 @@ nav.scrolled {
 }
 
 .hero-title {
-  font-family: 'Be Vietnam Pro', serif;
+  font-family: 'Cinzel', serif;
   font-weight: 800;
   font-size: clamp(4rem, 13vw, 11rem);
   letter-spacing: 0.2em;
@@ -441,6 +441,7 @@ nav.scrolled {
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 60px rgba(194, 149, 106, 0.15));
   position: relative;
+  text-shadow: none !important;
 }
 
 .hero-title::after {
@@ -684,7 +685,7 @@ section {
 }
 
 .quote-mark {
-  font-family: 'Be Vietnam Pro', serif;
+  font-family: 'Cinzel', serif;
   font-size: 8rem;
   background: linear-gradient(180deg, var(--spice), transparent);
   -webkit-background-clip: text;
@@ -693,6 +694,7 @@ section {
   line-height: 1;
   margin-bottom: -2.5rem;
   opacity: 0.3;
+  text-shadow: none !important;
 }
 
 .quote-text {
@@ -991,7 +993,7 @@ section {
 }
 
 .technique-num {
-  font-family: 'Be Vietnam Pro', serif;
+  font-family: 'Cinzel', serif;
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1;
@@ -1000,6 +1002,7 @@ section {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.4s;
+  text-shadow: none !important;
 }
 
 .technique-item:hover .technique-num {
