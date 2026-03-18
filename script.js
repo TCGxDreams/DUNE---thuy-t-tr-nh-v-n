@@ -5,6 +5,40 @@ window.addEventListener('load', () => {
   setTimeout(() => document.getElementById('loader').classList.add('hidden'), 2000);
 });
 
+// ===== THEME TOGGLE =====
+const themeBtn = document.getElementById('themeToggleBtn');
+const mobileThemeBtn = document.getElementById('mobileThemeToggleBtn');
+const icon = themeBtn ? themeBtn.querySelector('i') : null;
+const mobileIcon = mobileThemeBtn ? mobileThemeBtn.querySelector('i') : null;
+
+function applyTheme(isLight) {
+  if (isLight) {
+    document.body.classList.add('light-theme');
+    if (icon) { icon.classList.remove('fa-sun'); icon.classList.add('fa-moon'); }
+    if (mobileIcon) { mobileIcon.classList.remove('fa-sun'); mobileIcon.classList.add('fa-moon'); }
+  } else {
+    document.body.classList.remove('light-theme');
+    if (icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
+    if (mobileIcon) { mobileIcon.classList.remove('fa-moon'); mobileIcon.classList.add('fa-sun'); }
+  }
+}
+
+const savedTheme = localStorage.getItem('dune-theme');
+if (savedTheme === 'light') applyTheme(true);
+
+function toggleTheme() {
+  const isLight = !document.body.classList.contains('light-theme');
+  applyTheme(isLight);
+  localStorage.setItem('dune-theme', isLight ? 'light' : 'dark');
+}
+
+if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+function getParticleRGB() {
+  return document.body.classList.contains('light-theme') ? '139, 105, 20' : '194, 149, 106';
+}
+
 // ===== CUSTOM CURSOR =====
 const cursorDot = document.getElementById('cursorDot');
 const cursorRing = document.getElementById('cursorRing');
@@ -75,7 +109,7 @@ class Particle {
                        this.life > this.maxLife - 30 ? (this.maxLife - this.life) / 30 : 1;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(194, 149, 106, ${this.opacity * fadeFactor})`;
+    ctx.fillStyle = `rgba(${getParticleRGB()}, ${this.opacity * fadeFactor})`;
     ctx.fill();
   }
 }
@@ -100,7 +134,7 @@ function animateParticles() {
         ctx.beginPath();
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(194, 149, 106, ${0.03 * (1 - dist / 100)})`;
+        ctx.strokeStyle = `rgba(${getParticleRGB()}, ${0.05 * (1 - dist / 100)})`;
         ctx.lineWidth = 0.5;
         ctx.stroke();
       }

@@ -1338,6 +1338,75 @@ footer p {
   .quote-section {
     padding: 6rem 0;
   }
-}/* Add subtle text shadow */
+}
+/* Add subtle text shadow */
 h1, h2, h3, h4, .section-number, .timeline-year, .character-name { text-shadow: 0 2px 4px rgba(0,0,0,0.6), 0 0 10px rgba(0,0,0,0.3); }
 p, .character-desc, .conclusion-text { text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
+
+/* ===== THEME TOGGLE BUTTON ===== */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.4s, transform 0.4s;
+}
+.theme-toggle:hover {
+  color: var(--sand-light);
+  transform: rotate(30deg);
+}
+.mobile-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Be Vietnam Pro', serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+body.light-theme .mobile-toggle:hover { color: var(--sand-light); }
+
+/* ===== LIGHT THEME OVERRIDES ===== */
+body.light-theme {
+  --sand-light: #4A331C; 
+  --desert-night: #FDF9F2; 
+  --void: #FDF9F2; 
+  --void-warm: #F4EBE0; 
+  --text-primary: #1A110B; 
+  --text-secondary: #2C1D11; 
+  --text-dim: #4A331C; 
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(194, 149, 106, 0.4);
+  --glass-hover: rgba(255, 255, 255, 0.7);
+  
+  font-size: 16.5px;
+  font-weight: 500;
+}
+body.light-theme .section-body, body.light-theme .quote-text {
+  font-weight: 500;
+}
+body.light-theme .hero-title {
+  background: linear-gradient(180deg, #8B6914 0%, #C2956A 40%, #E67E22 80%, #D35400 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(139, 105, 20, 0.3));
+}
+body.light-theme nav.scrolled {
+  background: rgba(253, 249, 242, 0.85);
+}
+body.light-theme .mobile-menu {
+  background: rgba(253, 249, 242, 0.97);
+}
+body.light-theme .quote-section {
+  background: radial-gradient(ellipse 100% 80% at 50% 50%, rgba(139, 105, 20, 0.08) 0%, transparent 70%);
+}
+body.light-theme .author-section {
+  background: linear-gradient(180deg, var(--void) 0%, rgba(240, 224, 204, 0.4) 50%, var(--void) 100%);
+}
+body.light-theme h1, body.light-theme h2, body.light-theme h3, body.light-theme h4, body.light-theme .section-number, body.light-theme .timeline-year, body.light-theme .character-name { 
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5); 
+}
+body.light-theme p, body.light-theme .character-desc, body.light-theme .conclusion-text { 
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9); 
+}
