@@ -1195,6 +1195,15 @@ body.light-theme .table-responsive { background: rgba(255, 255, 255, 0.4); }
   margin-top: 3rem;
 }
 
+/* Section 03 — Core Themes: horizontal scroll row */
+#core-themes .relevance-grid {
+  grid-template-columns: repeat(6, minmax(260px, 1fr));
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--spice) transparent;
+}
+
 .relevance-card {
   padding: 2.5rem 2rem;
   text-align: center;
