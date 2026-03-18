@@ -1500,11 +1500,14 @@ body.light-theme p, body.light-theme .character-desc, body.light-theme .conclusi
 }
 
 /* Light Theme: Card Hover Overrides */
-body.light-theme .relevance-card:hover {
+body.light-theme .relevance-card:hover,
+body.light-theme .theme-card:hover {
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 20px 40px rgba(139, 105, 20, 0.15);
 }
-body.light-theme .relevance-card:hover::before {
+body.light-theme .relevance-card:hover::before,
+body.light-theme .theme-card:hover::before,
+body.light-theme .theme-card:hover::after {
   display: none;
 }
 body.light-theme .technique-item:hover {
