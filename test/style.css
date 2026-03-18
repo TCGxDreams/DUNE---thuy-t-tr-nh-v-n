@@ -5,25 +5,25 @@
 
 :root {
   --sand: #C2956A;
-  --sand-light: #4A331C; /* Dark brown for headings */
+  --sand-light: #F0E0CC;
   --sand-dark: #8B6914;
   --spice: #E67E22;
   --spice-glow: #F39C12;
   --spice-deep: #D35400;
-  --desert-night: #FDF9F2; /* Replaced dark with bright sand */
-  --deep-blue: #E3F2FD;
+  --desert-night: #0D0B08;
+  --deep-blue: #0A1628;
   --worm-brown: #3E2723;
   --fremen-blue: #1565C0;
   --fremen-glow: #42A5F5;
-  --void: #FDF9F2; /* Main dark background now bright sand */
-  --void-warm: #F4EBE0; /* Slightly darker sand for variant areas */
-  --text-primary: #1A110B; /* Near black espresso for main text */
-  --text-secondary: #2C1D11; /* Very dark brown for secondary text */
-  --text-dim: #4A331C; /* Dark brown for dim text */
-  --glass-bg: rgba(255, 255, 255, 0.4);
-  --glass-border: rgba(194, 149, 106, 0.4);
-  --glass-hover: rgba(255, 255, 255, 0.7);
-  --radius: 2px;
+  --void: #050308;
+  --void-warm: #0A0806;
+  --text-primary: #FFFFFF;
+  --text-secondary: #FDF9F2;
+  --text-dim: #D4BFA9;
+  --glass-bg: rgba(194, 149, 106, 0.08);
+  --glass-border: rgba(194, 149, 106, 0.15);
+  --glass-hover: rgba(230, 126, 34, 0.12);
+  --radius: 6px;
 }
 
 * {
@@ -57,9 +57,9 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   cursor: default;
-  font-size: 16.5px; /* Slightly larger base font size */
-  font-weight: 500; /* Increased from 400 for better visibility */
-  line-height: 1.7;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -74,6 +74,34 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   background-repeat: repeat;
   opacity: 0.35;
+}
+
+/* ===== CELESTIAL BACKGROUND DECORATION ===== */
+.bg-planet {
+  position: fixed;
+  top: 15%;
+  right: -5vw;
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(230, 126, 34, 0.03), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-planet-2 {
+  position: fixed;
+  bottom: -10vw;
+  left: -10vw;
+  width: 70vw;
+  height: 70vw;
+  max-width: 800px;
+  max-height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 70% 70%, rgba(21, 101, 192, 0.02), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ===== SCROLL PROGRESS BAR ===== */
@@ -187,7 +215,7 @@ body::before {
 
 .loader-sub {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   letter-spacing: 0.3em;
   font-weight: 300;
   color: var(--text-dim);
@@ -233,7 +261,7 @@ nav {
 }
 
 nav.scrolled {
-  background: rgba(253, 249, 242, 0.85); /* Light theme blur */
+  background: rgba(5, 3, 8, 0.85);
   backdrop-filter: blur(30px) saturate(1.2);
   -webkit-backdrop-filter: blur(30px) saturate(1.2);
   padding: 1rem 3rem;
@@ -242,7 +270,7 @@ nav.scrolled {
 
 .nav-brand {
   font-family: 'Be Vietnam Pro', serif;
-  font-size: 0.85rem;
+  font-size: 1.10rem;
   letter-spacing: 0.5em;
   color: var(--sand);
   text-transform: uppercase;
@@ -257,7 +285,7 @@ nav.scrolled {
 
 .nav-links a {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.90rem;
   letter-spacing: 0.2em;
   color: var(--text-dim);
   text-decoration: none;
@@ -327,7 +355,7 @@ nav.scrolled {
   position: fixed;
   inset: 0;
   z-index: 999;
-  background: rgba(253, 249, 242, 0.97); /* Light theme blur */
+  background: rgba(5, 3, 8, 0.97);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
   flex-direction: column;
@@ -417,7 +445,7 @@ nav.scrolled {
 
 .hero-eyebrow {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.90rem;
   letter-spacing: 0.8em;
   color: var(--spice);
   text-transform: uppercase;
@@ -436,11 +464,11 @@ nav.scrolled {
   margin-bottom: 1.5rem;
   opacity: 0;
   animation: heroReveal 1.8s cubic-bezier(0.4, 0, 0, 1) 0.3s forwards;
-  background: linear-gradient(180deg, #8B6914 0%, #C2956A 40%, #E67E22 80%, #D35400 100%); /* Inverted gradient for light theme */
+  background: linear-gradient(180deg, #FFF8F0 0%, var(--sand-light) 40%, var(--sand) 80%, var(--sand-dark) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 20px rgba(139, 105, 20, 0.3)); /* Darker shadow */
+  filter: drop-shadow(0 0 60px rgba(194, 149, 106, 0.15));
   position: relative;
   text-shadow: none !important;
 }
@@ -471,7 +499,7 @@ nav.scrolled {
 
 .hero-meta {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   letter-spacing: 0.4em;
   color: var(--text-dim);
   text-transform: uppercase;
@@ -505,7 +533,7 @@ nav.scrolled {
 
 .scroll-indicator span {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   letter-spacing: 0.4em;
   color: var(--text-dim);
   text-transform: uppercase;
@@ -587,7 +615,8 @@ nav.scrolled {
 /* ===== SECTIONS GENERAL ===== */
 section {
   position: relative;
-  padding: 8rem 0;
+  padding: 6rem 0;
+  z-index: 2;
 }
 
 .container {
@@ -597,14 +626,14 @@ section {
 }
 
 .section-number {
-  font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.6em;
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.4em;
   color: var(--spice);
   text-transform: uppercase;
   margin-bottom: 1rem;
   display: block;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .section-title {
@@ -618,10 +647,10 @@ section {
 }
 
 .section-body {
-  font-size: 1.15rem;
-  line-height: 2;
+  font-size: 1.25rem;
+  line-height: 1.8;
   color: var(--text-secondary);
-  font-weight: 500; /* Increased font weight */
+  font-weight: 500;
 }
 
 /* ===== REVEAL ANIMATIONS ===== */
@@ -682,7 +711,7 @@ section {
   padding: 10rem 0;
   text-align: center;
   position: relative;
-  background: radial-gradient(ellipse 100% 80% at 50% 50%, rgba(139, 105, 20, 0.08) 0%, transparent 70%); /* Light theme variant */
+  background: radial-gradient(ellipse 100% 80% at 50% 50%, rgba(230, 126, 34, 0.03) 0%, transparent 70%);
 }
 
 .quote-mark {
@@ -700,18 +729,18 @@ section {
 
 .quote-text {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-style: italic;
-  font-weight: 500; /* Increased font weight */
+  font-weight: 500;
   color: var(--sand-light);
-  line-height: 1.9;
-  max-width: 800px;
+  line-height: 1.8;
+  max-width: 850px;
   margin: 0 auto 2rem;
 }
 
 .quote-author {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   letter-spacing: 0.5em;
   color: var(--spice);
   text-transform: uppercase;
@@ -720,7 +749,7 @@ section {
 
 /* ===== AUTHOR ===== */
 .author-section {
-  background: linear-gradient(180deg, var(--void) 0%, rgba(240, 224, 204, 0.4) 50%, var(--void) 100%); /* Light theme variant */
+  background: linear-gradient(180deg, var(--void) 0%, var(--void-warm) 50%, var(--void) 100%);
 }
 
 .author-grid {
@@ -746,13 +775,19 @@ section {
   border-color: rgba(230, 126, 34, 0.25);
 }
 
-.author-visual::before {
-  content: 'F.H.';
-  font-family: 'Be Vietnam Pro', serif;
-  font-size: 8rem;
-  font-weight: 800;
-  color: rgba(194, 149, 106, 0.05);
+.author-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   position: absolute;
+  inset: 0;
+  filter: grayscale(80%) sepia(40%) contrast(120%) brightness(80%);
+  transition: filter 0.6s ease, transform 0.6s ease;
+}
+
+.author-visual:hover img {
+  filter: grayscale(20%) sepia(20%) contrast(110%) brightness(100%);
+  transform: scale(1.05);
 }
 
 .author-visual::after {
@@ -770,7 +805,7 @@ section {
 
 .author-visual-label {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   letter-spacing: 0.4em;
   color: var(--text-dim);
   text-transform: uppercase;
@@ -791,7 +826,7 @@ section {
 
 .author-dates {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   color: var(--spice);
   letter-spacing: 0.25em;
   margin-bottom: 2rem;
@@ -821,6 +856,7 @@ section {
   cursor: default;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -894,7 +930,7 @@ section {
 }
 
 .theme-card p {
-  font-size: 0.95rem;
+  font-size: 1.20rem;
   line-height: 1.9;
   color: var(--text-secondary);
   font-weight: 400;
@@ -954,7 +990,7 @@ section {
 
 .character-title-label {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.55rem;
+  font-size: 0.80rem;
   letter-spacing: 0.25em;
   color: var(--fremen-glow);
   text-transform: uppercase;
@@ -964,7 +1000,7 @@ section {
 }
 
 .character-desc {
-  font-size: 0.95rem;
+  font-size: 1.20rem;
   line-height: 1.9;
   color: var(--text-secondary);
   font-weight: 400;
@@ -1013,6 +1049,53 @@ section {
   -webkit-text-fill-color: transparent;
 }
 
+/* ===== COMPARISON TABLE ===== */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  background: rgba(10, 8, 6, 0.2);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+.comparison-table th, .comparison-table td {
+  border-bottom: 1px solid var(--glass-border);
+  border-right: 1px solid var(--glass-border);
+  padding: 1.2rem;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.comparison-table th:last-child, .comparison-table td:last-child {
+  border-right: none;
+}
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table th {
+  color: var(--spice-glow);
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  background: rgba(230, 126, 34, 0.08);
+}
+
+.comparison-table td {
+  color: var(--text-primary);
+  font-size: 1rem;
+  vertical-align: top;
+}
+body.light-theme .comparison-table th {
+  color: var(--sand-dark);
+}
+body.light-theme .table-responsive { background: rgba(255, 255, 255, 0.4); }
+
 .technique-item h4 {
   font-family: 'Be Vietnam Pro', serif;
   font-size: 1.15rem;
@@ -1022,7 +1105,7 @@ section {
 }
 
 .technique-item p {
-  font-size: 0.95rem;
+  font-size: 1.20rem;
   line-height: 1.9;
   color: var(--text-secondary);
   font-weight: 400;
@@ -1082,7 +1165,7 @@ section {
 
 .timeline-year {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   letter-spacing: 0.25em;
   color: var(--spice);
   margin-bottom: 0.5rem;
@@ -1098,7 +1181,7 @@ section {
 }
 
 .timeline-item p {
-  font-size: 0.95rem;
+  font-size: 1.20rem;
   line-height: 1.9;
   color: var(--text-secondary);
   font-weight: 400;
@@ -1188,7 +1271,7 @@ section {
 }
 
 .relevance-card p {
-  font-size: 0.9rem;
+  font-size: 1.15rem;
   line-height: 1.8;
   color: var(--text-secondary);
   font-weight: 400;
@@ -1238,7 +1321,7 @@ section {
 
 .conclusion-credit {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   letter-spacing: 0.4em;
   color: var(--text-dim);
   text-transform: uppercase;
@@ -1254,7 +1337,7 @@ footer {
 
 footer p {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   letter-spacing: 0.25em;
   color: var(--text-dim);
   text-transform: uppercase;
@@ -1340,6 +1423,78 @@ footer p {
     padding: 6rem 0;
   }
 }
-/* Add subtle text shadow for light theme */
-h1, h2, h3, h4, .section-number, .timeline-year, .character-name { text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5); }
-p, .character-desc, .conclusion-text { text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9); }
+/* Add subtle text shadow */
+/* Add subtle text shadow */
+h1, h2, h3, h4, .section-number, .timeline-year, .character-name { text-shadow: 0 4px 8px rgba(0,0,0,0.8), 0 0 15px rgba(0,0,0,0.6); }
+p, .character-desc, .conclusion-text { text-shadow: 0 2px 4px rgba(0,0,0,0.9); }
+
+/* ===== THEME TOGGLE BUTTON ===== */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.4s, transform 0.4s;
+}
+.theme-toggle:hover {
+  color: var(--sand-light);
+  transform: rotate(30deg);
+}
+.mobile-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Be Vietnam Pro', serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+body.light-theme .mobile-toggle:hover { color: var(--sand-light); }
+
+/* ===== LIGHT THEME OVERRIDES ===== */
+body.light-theme {
+  --sand-light: #3E2723; 
+  --desert-night: #FFFFFF; 
+  --void: #FFFFFF; 
+  --void-warm: #FDF9F2; 
+  --text-primary: #000000; 
+  --text-secondary: #1A110B; 
+  --text-dim: #3E2723; 
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(194, 149, 106, 0.5);
+  --glass-hover: rgba(255, 255, 255, 0.9);
+  
+  font-size: 19px;
+  font-weight: 600;
+  
+  background: linear-gradient(135deg, #FFFFFF 0%, #FDF9F2 40%, #EFE5D8 100%);
+  background-attachment: fixed;
+}
+body.light-theme .section-body, body.light-theme .quote-text {
+  font-weight: 600;
+}
+body.light-theme .hero-title {
+  background: linear-gradient(180deg, #8B6914 0%, #C2956A 40%, #E67E22 80%, #D35400 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(139, 105, 20, 0.3));
+}
+body.light-theme nav.scrolled {
+  background: rgba(253, 249, 242, 0.85);
+}
+body.light-theme .mobile-menu {
+  background: rgba(253, 249, 242, 0.97);
+}
+body.light-theme .quote-section {
+  background: radial-gradient(ellipse 100% 80% at 50% 50%, rgba(139, 105, 20, 0.12) 0%, transparent 70%);
+}
+body.light-theme .author-section {
+  background: linear-gradient(180deg, var(--void) 0%, rgba(240, 224, 204, 0.4) 50%, var(--void) 100%);
+}
+body.light-theme h1, body.light-theme h2, body.light-theme h3, body.light-theme h4, body.light-theme .section-number, body.light-theme .timeline-year, body.light-theme .character-name { 
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5); 
+}
+body.light-theme p, body.light-theme .character-desc, body.light-theme .conclusion-text { 
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9); 
+}

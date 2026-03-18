@@ -83,25 +83,18 @@ class Particle {
   reset() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 2 + 0.5;
-    this.speedX = Math.random() * 0.5 + 0.1;
-    this.speedY = (Math.random() - 0.5) * 0.15;
-    this.opacity = Math.random() * 0.4 + 0.1;
+    this.size = Math.random() * 2.5 + 0.8;
+    this.speedX = Math.random() * 1.5 + 0.3; 
+    this.speedY = (Math.random() - 0.5) * 0.5 - 0.2;
+    this.opacity = Math.random() * 0.5 + 0.2;
     this.life = 0;
-    this.maxLife = Math.random() * 400 + 200;
+    this.maxLife = Math.random() * 500 + 200;
   }
   update() {
-    const dx = canvasMouseX - this.x;
-    const dy = canvasMouseY - this.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 120) {
-      this.x -= dx * 0.008;
-      this.y -= dy * 0.008;
-    }
-    this.x += this.speedX;
-    this.y += this.speedY + Math.sin(this.life * 0.01) * 0.1;
+    this.x += this.speedX + Math.sin(this.y * 0.01) * 0.5;
+    this.y += this.speedY;
     this.life++;
-    if (this.x > canvas.width + 10 || this.life > this.maxLife) this.reset();
+    if (this.x > canvas.width + 10 || this.y < -10 || this.life > this.maxLife) this.reset();
     if (this.x < -10) this.x = canvas.width + 10;
   }
   draw() {
@@ -110,7 +103,10 @@ class Particle {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(${getParticleRGB()}, ${this.opacity * fadeFactor})`;
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = `rgba(${getParticleRGB()}, ${this.opacity * fadeFactor})`;
     ctx.fill();
+    ctx.shadowBlur = 0;
   }
 }
 
@@ -124,22 +120,6 @@ canvas.addEventListener('mousemove', e => {
 
 function animateParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // Draw subtle connecting lines between close particles
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 100) {
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(${getParticleRGB()}, ${0.05 * (1 - dist / 100)})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
-    }
-  }
   particles.forEach(p => { p.update(); p.draw(); });
   requestAnimationFrame(animateParticles);
 }
@@ -247,4 +227,16 @@ document.querySelectorAll('.character-card').forEach(card => {
     card.style.setProperty('--mouse-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
     card.style.setProperty('--mouse-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
   });
+});
+
+// ===== AUTHOR PARALLAX =====
+const authorVisualImg = document.querySelector('.author-visual img');
+window.addEventListener('scroll', () => {
+  if (authorVisualImg) {
+    const rect = authorVisualImg.parentElement.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const scrollRatio = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+      authorVisualImg.style.transform = `translateY(${(scrollRatio - 0.5) * -40}px) scale(1.1)`;
+    }
+  }
 });

@@ -39,9 +39,10 @@
       <li><a href="#overview" data-section="overview">Tổng quan</a></li>
       <li><a href="#author" data-section="author">Tác giả</a></li>
       <li><a href="#themes" data-section="themes">Chủ đề</a></li>
-      <li><a href="#characters" data-section="characters">Nhân vật</a></li>
       <li><a href="#narrative" data-section="narrative">Nghệ thuật</a></li>
       <li><a href="#influence" data-section="influence">Ảnh hưởng</a></li>
+      <li><button id="themeToggleBtn" class="theme-toggle" aria-label="Đổi giao diện"><i
+            class="fa-solid fa-sun"></i></button></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -53,9 +54,10 @@
     <a href="#overview">Tổng quan</a>
     <a href="#author">Tác giả</a>
     <a href="#themes">Chủ đề</a>
-    <a href="#characters">Nhân vật</a>
     <a href="#narrative">Nghệ thuật</a>
     <a href="#influence">Ảnh hưởng</a>
+    <button id="mobileThemeToggleBtn" class="theme-toggle mobile-toggle" aria-label="Đổi giao diện"><i
+        class="fa-solid fa-sun"></i> Đổi giao diện</button>
   </div>
 
   <!-- HERO -->
@@ -135,7 +137,9 @@
     <div class="container">
       <div class="author-grid">
         <div class="author-visual reveal-left">
-          <div class="author-visual-label">Frank Herbert · 1920–1986</div>
+          <img src="frank-herbert.jpg" alt="Frank Herbert, author of Dune"
+            style="width:100%;height:100%;object-fit:cover;">
+          <div class="author-visual-label">Frank Herbert · 1984</div>
         </div>
         <div class="reveal-right">
           <span class="section-number">02 — Tác giả</span>
@@ -231,65 +235,29 @@
           <span class="theme-icon"><i class="fa-solid fa-brain"></i></span>
           <h4>Con người &amp; Bản năng</h4>
           <p>Phép thử Gom Jabbar đã mở đầu tiểu thuyết và đặt câu hỏi: điều gì phân biệt con người với động vật, con
-            người và máy móc? Khả năng chịu
-            đựng đau đớn vì mục đích lớn hơn hay chỉ là bản năng sinh tồn được lập trình sẵn?</p>
+            người và máy móc? Khả năng chịu đựng đau đớn vì mục đích lớn hơn hay chỉ là bản năng sinh tồn được lập trình
+            sẵn?</p>
+        </div>
+        <div class="theme-card reveal" style="transition-delay: 0.6s">
+          <span class="theme-icon"><i class="fa-solid fa-leaf"></i></span>
+          <h4>Môi trường &amp; Cộng sinh</h4>
+          <p>Mang tư duy hệ thống của sinh học, sinh thái hành tinh Arrakis không chỉ là phông nền mà là một
+            <strong>nhân vật sống</strong>. Sự cộng sinh giữa người Fremen và Giun cát (Shai-Hulud) là minh chứng xuất
+            sắc cho việc nền văn hóa phương thức tồn tại bị định hình hoàn toàn bởi môi trường — điểm khác biệt cốt lõi
+            của tiểu thuyết hiện đại.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="ornament">◆ ◆ ◆</div>
-
-  <!-- 04 — CHARACTERS (VERTICAL GRID) -->
-  <section id="characters">
-    <div class="container">
-      <div class="reveal">
-        <span class="section-number">04 — Nhân vật</span>
-        <h2 class="section-title">Những bóng hình<br>trên cát</h2>
-      </div>
-      <div class="characters-grid">
-        <div class="character-card reveal">
-          <div class="character-name">Paul Atreides</div>
-          <span class="character-title-label">Muad'Dib · Kwisatz Haderach</span>
-          <p class="character-desc">Người thừa kế Gia tộc Atreides, được huấn luyện bởi Bene Gesserit và Mentat. Hành
-            trình của anh từ quý tộc trẻ đến "đấng cứu thế" Fremen là trung tâm phê phán của Herbert về sự nguy hiểm của
-            anh hùng.</p>
-        </div>
-        <div class="character-card reveal" style="transition-delay: 0.1s">
-          <div class="character-name">Lady Jessica</div>
-          <span class="character-title-label">Bene Gesserit · Mẹ của Paul</span>
-          <p class="character-desc">Thành viên Hội Bene Gesserit, người đã chống lại mệnh lệnh của Hội để sinh con trai
-            cho Công tước Leto. Quyết định cá nhân của bà đã thay đổi dòng chảy lịch sử vũ trụ.</p>
-        </div>
-        <div class="character-card reveal" style="transition-delay: 0.2s">
-          <div class="character-name">Baron Harkonnen</div>
-          <span class="character-title-label">Lãnh chúa Gia tộc Harkonnen</span>
-          <p class="character-desc">Kẻ phản diện tàn bạo, biểu tượng cho lòng tham không đáy. Herbert sử dụng ẩn dụ về
-            sự phàm ăn và xa hoa để khắc họa cơn đói vô tận của kẻ nắm quyền.</p>
-        </div>
-        <div class="character-card reveal" style="transition-delay: 0.3s">
-          <div class="character-name">Stilgar</div>
-          <span class="character-title-label">Naib · Thủ lĩnh Fremen</span>
-          <p class="character-desc">Thủ lĩnh bộ tộc Fremen, đại diện cho trí tuệ bản địa và khả năng thích nghi với môi
-            trường khắc nghiệt — đối lập với sự xa hoa yếu đuối của Đế chế.</p>
-        </div>
-        <div class="character-card full-width reveal" style="transition-delay: 0.4s">
-          <div class="character-name">Dr. Liet-Kynes</div>
-          <span class="character-title-label">Nhà sinh thái học hành tinh</span>
-          <p class="character-desc">Nhà khoa học-nhà tiên tri sinh thái, người mơ về việc biến đổi Arrakis thành thiên
-            đường xanh. Kynes hiện thân cho thông điệp sinh thái cốt lõi của tiểu thuyết.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <div class="section-divider"></div>
 
-  <!-- 05 — NARRATIVE TECHNIQUES -->
+  <!-- 04 — NARRATIVE TECHNIQUES -->
   <section id="narrative">
     <div class="container">
       <div class="reveal">
-        <span class="section-number">05 — Nghệ thuật tự sự</span>
+        <span class="section-number">04 — Nghệ thuật tự sự</span>
         <h2 class="section-title">Kỹ thuật viết<br>mang tính hiện đại</h2>
       </div>
       <div class="technique-list">
@@ -337,8 +305,40 @@
           <div>
             <h4>Kết cục mở &amp; Phản anh hùng</h4>
             <p>Paul "chiến thắng" nhưng nhìn thấy tương lai là một cuộc thánh chiến tàn khốc mà anh không thể ngăn chặn.
-              Chiến thắng trở thành bi kịch. Giống cách Hemingway kết thúc Ông già và biển cả chiến thắng hay thất
-              bại? Herbert để người đọc tự quyết định.</p>
+              Chiến thắng trở thành bi kịch. Giống cách Hemingway kết thúc <em>Ông già và biển cả</em> chiến thắng hay
+              thất bại? Herbert để người đọc tự quyết định.</p>
+          </div>
+        </div>
+        <div class="technique-item reveal">
+          <div class="technique-num">06</div>
+          <div>
+            <h4>Liên kết liên văn bản: Số Đỏ &amp; Dune</h4>
+            <p>Để thấy rõ tính hiện đại của Dune, hãy nhìn vào sự tương đồng bất ngờ trong kỹ thuật giải thiêng hình
+              tượng nam chính trào phúng và viễn tưởng:</p>
+            <div style="overflow-x: auto; margin-top: 1.5rem;">
+              <table class="comparison-table">
+                <tr>
+                  <th>Tiêu chí</th>
+                  <th>Số Đỏ (Vũ Trọng Phụng)</th>
+                  <th>Dune (Frank Herbert)</th>
+                </tr>
+                <tr>
+                  <td><strong>Nhân vật</strong></td>
+                  <td>Xuân Tóc Đỏ - Anh hùng "rơm" do xã hội lố lăng nhào nặn.</td>
+                  <td>Paul Atreides - Anh hùng "giả" do kế hoạch di truyền hàng ngàn năm sắp đặt.</td>
+                </tr>
+                <tr>
+                  <td><strong>Tính hiện đại</strong></td>
+                  <td>Trào phúng sâu cay, giải thiêng các giá trị đạo đức giả của thời đại.</td>
+                  <td>Sci-fi siêu hình, giải thiêng hình tượng đấng cứu thế (Messiah) hoàn mỹ.</td>
+                </tr>
+                <tr>
+                  <td><strong>Kết cấu</strong></td>
+                  <td>Kết cấu đa tuyến, lắp ghép nhiều mảnh vỡ bi hài của xã hội.</td>
+                  <td>Kết cấu phi tuyến tính (dòng ý thức, hồi tưởng, tiên tri chằng chịt).</td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -356,11 +356,11 @@
 
   <div class="section-divider"></div>
 
-  <!-- 06 — INFLUENCE TIMELINE -->
+  <!-- 05 — INFLUENCE TIMELINE -->
   <section id="influence">
     <div class="container">
       <div class="reveal">
-        <span class="section-number">06 — Ảnh hưởng &amp; Di sản</span>
+        <span class="section-number">05 — Ảnh hưởng &amp; Di sản</span>
         <h2 class="section-title">Từ trang sách<br>đến văn hóa đại chúng</h2>
       </div>
       <div class="timeline" id="timeline">
@@ -402,11 +402,11 @@
 
   <div class="ornament">◆ ◆ ◆</div>
 
-  <!-- 07 — MODERN RELEVANCE -->
+  <!-- 06 — MODERN RELEVANCE -->
   <section>
     <div class="container">
       <div class="reveal">
-        <span class="section-number">07 — Tính thời sự</span>
+        <span class="section-number">06 — Tính thời sự</span>
         <h2 class="section-title">Vì sao Dune vẫn<br>quan trọng hôm nay?</h2>
       </div>
       <div class="relevance-grid">
@@ -425,8 +425,10 @@
         <div class="relevance-card reveal" style="transition-delay: 0.2s">
           <span class="relevance-icon"><i class="fa-solid fa-microchip"></i></span>
           <h4>AI &amp; Hậu Butlerian Jihad</h4>
-          <p>Vũ trụ Dune cấm máy tính sau cuộc nổi dậy Butlerian Jihad đặt câu hỏi về ranh giới giữa trí tuệ con người
-            và trí tuệ nhân tạo.</p>
+          <p>Lời cảnh báo từ năm 1965: <em>"Không được chế tạo máy móc có tư duy giống con người"</em>. Sự ám ảnh này
+            phản chiếu trực tiếp vào cơn sốt AI hiện nay (ChatGPT, Gemini). Câu hỏi hiện đại: Chúng ta giữ lại phần
+            "Người" nào khi AI dần thay thế trí tuệ? Đó chính là sự giằng xé nội tâm của Paul khi anh đấu tranh giữa sự
+            logic vô cảm như máy tính (Mentat) và cảm xúc thuần túy của con người.</p>
         </div>
       </div>
     </div>
