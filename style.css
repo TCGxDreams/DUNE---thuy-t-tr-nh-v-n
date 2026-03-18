@@ -1034,19 +1034,29 @@ section {
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1;
-  background: linear-gradient(180deg, rgba(230, 126, 34, 0.3), rgba(230, 126, 34, 0.05));
+  background: linear-gradient(180deg, #E67E22, rgba(230, 126, 34, 0.6));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(230, 126, 34, 0.5));
   transition: all 0.4s;
-  text-shadow: none !important;
 }
 
 .technique-item:hover .technique-num {
-  background: linear-gradient(180deg, rgba(230, 126, 34, 0.6), rgba(230, 126, 34, 0.15));
+  background: linear-gradient(180deg, #FF9945, #E67E22);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 14px rgba(230, 126, 34, 0.8));
+}
+
+/* Light mode: solid dark amber for maximum contrast on white */
+body.light-theme .technique-num {
+  background: linear-gradient(180deg, #B5510E, #E67E22);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 3px rgba(181, 81, 14, 0.3));
 }
 
 /* ===== COMPARISON TABLE ===== */
